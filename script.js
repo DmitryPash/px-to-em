@@ -9,7 +9,7 @@ function getResult() {
     let result = '';
 
     const makeEm = value.replace(/((?!1px)\d+(\.\d+)?px?(\s+||$))+/g, (match) => {
-        console.log(match)
+        
         const findPx = match.match(/\d+(\.\d+)?/g)
 
         return `em(${findPx.join(' ')}, $fz)`;
