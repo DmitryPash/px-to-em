@@ -8,13 +8,12 @@ function getResult() {
     let value = setArea.value
     let result = '';
 
-    const makeEm = value.replace(/((?!1px)\d+px?(\s+||$))+/g, (match) => {
-        const findPx = match.match(/\d+/g)
+    const makeEm = value.replace(/((?!1px)\d+(\.\d+)?px?(\s+||$))+/g, (match) => {
+        console.log(match)
+        const findPx = match.match(/\d+(\.\d+)?/g)
 
         return `em(${findPx.join(' ')}, $fz)`;
     });
-
-
 
 
     const doFz = makeEm.replace(/font-size: em\((\d+),\s*\$fz\)/g, (match) => {
@@ -22,7 +21,7 @@ function getResult() {
         const findNumber = match.match(/\d+/g)
 
         return ` $fz: ${findNumber};
-                 font-size: em($fz, $fz_base)`
+            font-size: em($fz, $fz_base)`
     })
 
 
