@@ -1,38 +1,30 @@
-const D = document;
+(() => {
+    const D = document;
 
-const setArea = D.querySelector('#setArea'),
-      getArea = D.querySelector('#getArea'),
-      res = D.querySelector('#result');
-
-function getResult() {
-    let value = setArea.value
-    let result = '';
-
-    const makeEm = value.replace(/((?!1px)\d+(\.\d+)?px?(\s+||$))+/g, (match) => {
-        
-        const findPx = match.match(/\d+(\.\d+)?/g)
-
-        return `em(${findPx.join(' ')}, $fz)`;
-    });
+    const setArea = D.querySelector('#setArea'),
+          getArea = D.querySelector('#getArea'),
+          res = D.querySelector('#result');
 
 
-    const doFz = makeEm.replace(/font-size: em\((\d+),\s*\$fz\)/g, (match) => {
+    const translate = () => {
+        const result = setArea.value.replace(/((?!1px)\d+(\.\d+)?px?(\s+||$))+/g, (match) => {
 
-        const findNumber = match.match(/\d+/g)
+            const PX = match.match(/\d+(\.\d+)?/g)
 
-        return ` $fz: ${findNumber};
-            font-size: em($fz, $fz_base)`
-    })
+            return `em(${PX.join(' ')}, $fz)`;
+
+        }).replace(/font-size: em\((\d+),\s*\$fz\)/g, (match) => {
+
+            const NUM = match.match(/\d+/g)
+
+            return ` $fz: ${NUM};
+                font-size: em($fz, $fz_base)`
+
+        }).replace(/\$fz\)(?!;)+/g, '$fz) ');
+
+        getArea.innerHTML = result
+    }
 
 
-    const doSpace = doFz.replace(/\$fz\)(?!;)+/g, '$fz) ')
-
-
-    result = doSpace
-
-    getArea.innerHTML = result
-}
-
-
-
-res.addEventListener('click', getResult)
+    res.addEventListener('click', translate)
+})()
