@@ -3,34 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>px to em</title>
 </head>
 <body>
-    <textarea id="setArea">
-       .div1 {
-            font-size: 13px;
-            box-shadow: 10px 5px 5px red;
-            margin: 4.5px 10px 1px;
-        }
+    <div class="translate">
+        <div class="translate__header">
+            <h1 class="translate__title">Реформатор px в em()</h1>
+        </div>
+        <div class="translate__body">
+            <div class="translate-field translate__field">
+                <h2 class="translate-field__title">Введите код:</h2>
+                <textarea class="translate-field__input" id="setArea" cols="30" rows="10" spellcheck="false"></textarea>
+            </div>
+            <div class="translate-field translate__field">
+                <h2 class="translate-field__title">Результат выполнения:</h2>
+                <textarea class="translate-field__result" id="getArea" cols="30" rows="10" spellcheck="false"></textarea>
+            </div>
+        </div>
+        <div class="translate__footer">
+            <a href="https://github.com/DmitryPash/px-to-em/tree/main">Проект на GitHub</a>
+            <a href="https://t.me/MorlndLuv">@MorlndLuv</a>
+        </div>
+    </div>
 
-        .div2 {
-            margin-left: 1px;
-            padding: 1px 0 2px 1px;
-            trasnform: translate(-23px)
-        }
-    </textarea>
-    <textarea id="getArea"></textarea>
-    <button id="result">Result</button>
+<!-- ***
+    Пример кода который можно использовать -->
+    <!-- .div1 {
+        font-size: 13px;
+        box-shadow: 10px 5px 5px red;
+        margin: 4.5px 10px 1px;
+    }
 
-
+    .div2 {
+        margin-left: 1px;
+        padding: 1px 0 2px 1px;
+        trasnform: translate(-23px)
+    }
+    *** -->
 
     <style>
-        body {
-            padding: 45px 70px;
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        textarea {
-            width: 300px;
-            height: 300px;
+
+        body {
+            min-width: 800px;
+            margin: 0;
+            font-family: 'Trebuchet MS', sans-serif;
+            font-optical-sizing: auto;
+            background: #EEE;
+        }
+
+        /* width */
+        textarea::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        /* Track */
+        textarea::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        textarea::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        /* Handle on hover */
+        textarea::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .translate {
+            margin: 2rem auto;
+            padding: 2rem 3rem 3rem;
+            width: 80%;
+            min-width: 800px;
+            max-width: 1200px;
+            background: #FFF;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .translate__header {
+            text-align: center;
+            position: relative;
+            margin-bottom: 2.65rem;
+            padding: 1rem 0;
+            border-bottom: 3px solid #EEE;
+        }
+
+        .translate__title {
+            font-weight: 500;
+        }
+        .translate__body {
+            display: flex;
+            column-gap: 60px;
+        }
+        .translate-field {
+            flex: 1 0 auto;
+        }
+        .translate-field__input {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 2rem;
+            padding: .75rem;
+            border: 1px solid #CCC;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset;
+            font: inherit;
+            line-height: 1.3;
+        }
+
+        .translate-field__result {
+            height: 200px;
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #CCC;
+            display: flex;
+            font: inherit;
+            justify-content: center;
+            align-items: center;
+            resize: none;
+        }
+
+        .translate-field__title {
+            font-weight: 500;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .translate__footer {
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 3px solid #EEE;
+            display: flex;
+            justify-content: space-between;
         }
     </style>
 
