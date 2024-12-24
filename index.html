@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>px to em</title>
 </head>
 <body>
@@ -20,7 +17,10 @@
             </div>
             <div class="translate-field translate__field">
                 <h2 class="translate-field__title">Результат выполнения:</h2>
-                <textarea class="translate-field__result" id="getArea" cols="30" rows="10" spellcheck="false"></textarea>
+                <textarea
+                class="translate-field__result" placeholder="Чтобы увидеть структуру разметки, вставьте HTML-код в поле слева.
+                Можно вставлять как отдельные блоки, так и код страницы целиком."
+                id="getArea" cols="30" rows="10" spellcheck="false"></textarea>
             </div>
         </div>
         <div class="translate__footer">
@@ -128,6 +128,12 @@
             justify-content: center;
             align-items: center;
             resize: none;
+        }
+
+        .translate-field__result::placeholder {
+            text-align: center;
+            font-size: 14px;
+            color: #999;
         }
 
         .translate-field__title {
