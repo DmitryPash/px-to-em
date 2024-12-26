@@ -2,8 +2,7 @@
   const D = document;
 
   const setArea = D.querySelector("#setArea"),
-    getArea = D.querySelector("#getArea"),
-    res = D.querySelector("#result");
+    getArea = D.querySelector("#getArea");
 
   const translate = () => {
     const result = setArea.value
@@ -23,5 +22,5 @@
     getArea.innerHTML = result;
   };
 
-  res.addEventListener("click", translate);
+  setArea.addEventListener('input', translate)
 })();
